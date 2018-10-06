@@ -10,6 +10,10 @@ The IDEA plugin to generate findViewById code automatic. Support Java and Kotlin
 ### **2、Local**
 > Download the plugins in the `/libs` directory.
 
+## **Usage**
+Select the layout resource file and open "Generate" dialog from the [**Code**] menu at IDEA and click [**Generate...**] button, or use the shortcut key [**Command + N**].
+
+<img src="https://github.com/Sunzxyong/findViewById-support/blob/master/open.jpg" width="500" height="322" />
 ## **Support**
 * **Android Studio 3.0.0+.**
 
