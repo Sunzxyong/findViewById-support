@@ -1,7 +1,7 @@
 # **Android FindViewById Support**
 The IDEA plugin to generate findViewById code automatic. Support Java and Kotlin.
 
-<img src="https://github.com/Sunzxyong/external-plugin-support/blob/master/external-plugins.png" width="500" hegiht="323" />
+<img src="https://github.com/Sunzxyong/findViewById-support/blob/master/findviewbyid.jpg" width="500" height="340" />
 
 ## **Install**
 ### **1、Network**

@@ -317,20 +317,13 @@
                       <text value="Insert Position:"/>
                     </properties>
                   </component>
-                  <component id="d812a" class="javax.swing.JComboBox" binding="classComboBox">
+                  <component id="3bb03" class="javax.swing.JComboBox" binding="classComboBox">
                     <constraints/>
-                    <properties>
-                      <minimumSize width="96" height="30"/>
-                      <preferredSize width="96" height="30"/>
-                    </properties>
+                    <properties/>
                   </component>
-                  <component id="28be6" class="javax.swing.JComboBox" binding="methodComboBox">
+                  <component id="1851b" class="javax.swing.JComboBox" binding="methodComboBox">
                     <constraints/>
-                    <properties>
-                      <minimumSize width="96" height="30"/>
-                      <name value=""/>
-                      <preferredSize width="96" height="30"/>
-                    </properties>
+                    <properties/>
                   </component>
                 </children>
               </grid>

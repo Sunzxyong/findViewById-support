@@ -44,7 +44,7 @@ dependencies {
 }
 
 group = 'com.zxy.idea.plugin'
-version = '1.0-SNAPSHOT'
+version = '1.0'
 
 intellij {
     pluginName = 'Android FindViewById Support'
@@ -70,7 +70,7 @@ patchPluginXml {
     //Product ID-Branch number-Build number in the branch，see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html
     //untilBuild = "AI-181"
     pluginDescription = "Generate findViewById code automatic. Support Java and Kotlin." + "<br/>" +
-            "<img src=\'http://7xswxf.com2.z0.glb.qiniucdn.com/source/external-plugins.png\' width=\'320\' height=\'206\'/>" + "<br/>"+
+            "<img src=\'http://7xswxf.com2.z0.glb.qiniucdn.com/findviewbyid.jpg\' width=\'400\' height=\'272\'/>" + "<br/>"+
             "\n<li>Support Android Studio 3.0.0+</li>\n"
     changeNotes = "\n<li>1.0: First version.</li>\n"
 }

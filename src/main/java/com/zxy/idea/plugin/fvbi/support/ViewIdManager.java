@@ -91,7 +91,7 @@ public class ViewIdManager {
                     XmlAttribute layoutAttribute = tag.getAttribute("layout");
 
                     if (layoutAttribute != null) {
-                        PsiFile includeFile = Tools.resolveLayoutResourceFile(layoutAttribute.getValueElement(), Tools.getLayoutName(layoutAttribute.getValue()));
+                        PsiFile includeFile = Tools.resolveLayoutResourceFile(layoutAttribute.getValueElement(), String.format("%s.xml", Tools.getLayoutName(layoutAttribute.getValue())));
                         if (includeFile != null)
                             searchViewId(includeFile);
                     }
