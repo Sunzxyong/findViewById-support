@@ -1,0 +1,32 @@
+<idea-plugin>
+    <!--<id>com.zxy.idea.plugin.findViewById-support</id>-->
+    <name>Android FindViewById Support</name>
+    <vendor email="zhengxiaoyong0808@gmail.com" url="https://github.com/Sunzxyong">郑晓勇</vendor>
+
+    <depends>org.jetbrains.plugins.gradle</depends>
+    <depends>org.jetbrains.android</depends>
+    <depends>org.intellij.groovy</depends>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+     on how to target different products -->
+
+    <!--<depends>com.intellij.modules.lang</depends>-->
+    <!--<depends>com.intellij.modules.java</depends>-->
+    <!--<depends>com.intellij.modules.ultimate</depends>-->
+    <!--<depends>com.intellij.modules.androidstudio</depends>-->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="com.zxy.idea.plugin.fvbi.support.FindViewByIdGenerateAction"
+                class="com.zxy.idea.plugin.fvbi.support.FindViewByIdGenerateAction"
+                text="FindViewById"
+                description="Generate findViewById code automatic. Support Java and Kotlin.">
+            <add-to-group group-id="GenerateGroup" anchor="first"/>
+        </action>
+
+    </actions>
+</idea-plugin>

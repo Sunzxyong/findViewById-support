@@ -1,0 +1,85 @@
+//plugins {
+//    id 'org.jetbrains.intellij' version '0.3.10'
+//}
+
+buildscript {
+    repositories {
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+        maven {
+            url 'http://dl.bintray.com/jetbrains/intellij-plugin-service'
+        }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven {
+            url 'https://dl.google.com/dl/android/maven2'
+        }
+        jcenter()
+        mavenCentral()
+        google()
+    }
+
+    dependencies {
+        classpath "gradle.plugin.org.jetbrains.intellij.plugins:gradle-intellij-plugin:0.3.10"
+    }
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+    google()
+}
+
+apply plugin: 'idea'
+apply plugin: 'org.jetbrains.intellij'
+apply plugin: 'java'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+dependencies {
+
+}
+
+group = 'com.zxy.idea.plugin'
+version = '1.0-SNAPSHOT'
+
+intellij {
+    pluginName = 'Android FindViewById Support'
+    //https://www.jetbrains.com/intellij-repository/releases
+    it.version = null
+    //version = '2018.1.1'
+    plugins = ['android', 'gradle', 'Groovy']
+    type = "AI"
+    //for as local,intelliJ IDEA version is not recommended.
+    localPath = "/Applications/Android Studio.app"
+    updateSinceUntilBuild = false
+    sameSinceUntilBuild = false
+    sandboxDirectory = "${project.buildDir}/idea-sandbox"
+    alternativeIdePath = "/Applications/Android Studio.app"
+}
+
+patchPluginXml {
+    //https://plugins.jetbrains.com/plugin/YOUR_PLUGIN_ID
+    pluginId = "com.zxy.idea.plugin.findViewById-support"
+    it.version = "${project.version}"
+    //AI-171 for AS-3.0，AI-173 for AS-3.1
+    sinceBuild = "AI-171"
+    //Product ID-Branch number-Build number in the branch，see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html
+    //untilBuild = "AI-181"
+    pluginDescription = "Generate findViewById code automatic. Support Java and Kotlin." + "<br/>" +
+            "<img src=\'http://7xswxf.com2.z0.glb.qiniucdn.com/source/external-plugins.png\' width=\'320\' height=\'206\'/>" + "<br/>"+
+            "\n<li>Support Android Studio 3.0.0+</li>\n"
+    changeNotes = "\n<li>1.0: First version.</li>\n"
+}
+
+Properties properties = new Properties()
+properties.load(project.file("local.properties").newDataInputStream())
+
+publishPlugin {
+    username = properties.get("username")
+    password = properties.get("password")
+    host = "http://plugins.jetbrains.com"
+}
