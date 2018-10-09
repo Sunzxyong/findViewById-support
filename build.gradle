@@ -44,7 +44,7 @@ dependencies {
 }
 
 group = 'com.zxy.idea.plugin'
-version = '1.0'
+version = '1.1'
 
 intellij {
     pluginName = 'Android FindViewById Support'
@@ -70,12 +70,13 @@ patchPluginXml {
     //Product ID-Branch number-Build number in the branch，see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html
     //untilBuild = "AI-181"
     pluginDescription = "Generate findViewById code automatic. Support Java and Kotlin." + "<br/>" +
-            "<img src=\'http://7xswxf.com2.z0.glb.qiniucdn.com/findviewbyid.jpg\' width=\'400\' height=\'272\'/>" + "<br/>"+
-            "<strong>Usage</strong>"+"<br/>"+
-            "Select the layout resource file and open \"Generate\" dialog from the [Code] menu at IDEA and click [Generate...] button, or use the shortcut key [Command + N]."+"<br/>"+
-            "<img src=\'http://7xswxf.com2.z0.glb.qiniucdn.com/findviewbyid-open.jpg\' width=\'400\' height=\'258\'/>" + "<br/>"+
+            "<img src=\'http://7xswxf.com2.z0.glb.qiniucdn.com/findviewbyid.jpg\' width=\'400\' height=\'272\'/>" + "<br/>" +
+            "<strong>Usage</strong>" + "<br/>" +
+            "Select the layout resource file and open \"Generate\" dialog from the [Code] menu at IDEA and click [Generate...] button, or use the shortcut key [Command + N]." + "<br/>" +
+            "<img src=\'http://7xswxf.com2.z0.glb.qiniucdn.com/findviewbyid-open.jpg\' width=\'400\' height=\'258\'/>" + "<br/>" +
             "\n<li>Support Android Studio 3.0.0+</li>\n"
-    changeNotes = "\n<li>1.0: First version.</li>\n"
+    changeNotes = "\n<li>1.0: First version.</li>" +
+            "<li>1.1: To optimize the interaction.</li>\n"
 }
 
 Properties properties = new Properties()

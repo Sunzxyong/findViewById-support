@@ -5,6 +5,7 @@ import com.intellij.codeInsight.generation.actions.BaseGenerateAction;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.wm.WindowManager;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
@@ -44,14 +45,15 @@ public class FindViewByIdGenerateAction extends BaseGenerateAction {
         ViewIdManager.getInstance().collectViewId(layoutFile);
 
         FindViewByIdGenerateDialog dialog = new FindViewByIdGenerateDialog(project);
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        Dimension frameSize = dialog.getPreferredSize();
-        if (frameSize.height > screenSize.height)
-            frameSize.height = screenSize.height;
-        if (frameSize.width > screenSize.width)
-            frameSize.width = screenSize.width;
-        dialog.setLocation((screenSize.width - frameSize.width) / 2, (screenSize.height - frameSize.height) / 2);
+//        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+//        Dimension frameSize = dialog.getPreferredSize();
+//        if (frameSize.height > screenSize.height)
+//            frameSize.height = screenSize.height;
+//        if (frameSize.width > screenSize.width)
+//            frameSize.width = screenSize.width;
+//        dialog.setLocation((screenSize.width - frameSize.width) / 2, (screenSize.height - frameSize.height) / 2);
         dialog.pack();
+        dialog.setLocationRelativeTo(WindowManager.getInstance().getFrame(project));
         dialog.setVisible(true);
     }
 
