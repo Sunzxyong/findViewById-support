@@ -154,6 +154,8 @@ public class FindViewByIdGenerateDialog extends JDialog {
         kotlinLazyCheckBox.setSelected(false);
         kotlinLazyCheckBox.setEnabled(false);
         threadModePanel.setEnabled(false);
+        noneCheckBox.setEnabled(false);
+        synchronizedCheckBox.setEnabled(false);
         noneCheckBox.setSelected(true);
         synchronizedCheckBox.setSelected(false);
         ConfigCenter.getInstance().reset();
@@ -231,8 +233,12 @@ public class FindViewByIdGenerateDialog extends JDialog {
                 boolean selected = kotlinLazyCheckBox.isSelected();
                 if (selected) {
                     threadModePanel.setEnabled(true);
+                    noneCheckBox.setEnabled(true);
+                    synchronizedCheckBox.setEnabled(true);
                 } else {
                     threadModePanel.setEnabled(false);
+                    noneCheckBox.setEnabled(false);
+                    synchronizedCheckBox.setEnabled(false);
                 }
                 ConfigCenter.getInstance().setKotlinLazy(selected);
                 updateGenerateCode();
@@ -278,6 +284,8 @@ public class FindViewByIdGenerateDialog extends JDialog {
                 if (javaCheckBox.isSelected()) {
                     kotlinLazyCheckBox.setEnabled(false);
                     threadModePanel.setEnabled(false);
+                    noneCheckBox.setEnabled(false);
+                    synchronizedCheckBox.setEnabled(false);
 
                     privateCheckBox.setText("private");
                     defaultCheckBox.setText("default");
