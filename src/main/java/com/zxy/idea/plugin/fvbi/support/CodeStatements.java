@@ -25,8 +25,12 @@ public class CodeStatements {
 
     public static final String KOTLIN_DECLARE_LOCAL_FOR_FINDVIEWBYID_EXPRESSION_AFTER_API26 = "val %s = %sfindViewById<%s>(R.id.%s)";
 
-    public static final String KOTLIN_LAZY_FOR_FINDVIEWBYID_EXPRESSION_BEFORE_API26 = "val %s by lazy { %sfindViewById(R.id.%s) as %s }";
+    public static final String KOTLIN_FOR_FINDVIEWBYID_EXPRESSION_VARIABLE_LAZY = "val %s by lazy(LazyThreadSafetyMode.NONE) { ";
 
-    public static final String KOTLIN_LAZY_FOR_FINDVIEWBYID_EXPRESSION_AFTER_API26 = "val %s by lazy { %sfindViewById<%s>(R.id.%s) }";
+    public static final String KOTLIN_FOR_FINDVIEWBYID_EXPRESSION_VARIABLE_LAZY_SYNCHRONIZED = "val %s by lazy { ";
+
+    public static final String KOTLIN_FOR_FINDVIEWBYID_EXPRESSION_BEFORE_API26 = "%sfindViewById(R.id.%s) as %s }";
+
+    public static final String KOTLIN_FOR_FINDVIEWBYID_EXPRESSION_AFTER_API26 = "%sfindViewById<%s>(R.id.%s) }";
 
 }

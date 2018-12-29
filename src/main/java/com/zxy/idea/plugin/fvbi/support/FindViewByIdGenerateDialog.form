@@ -91,7 +91,7 @@
                     <properties>
                       <focusable value="true"/>
                       <horizontalAlignment value="10"/>
-                      <margin top="0" left="0" bottom="0" right="0"/>
+                      <margin top="2" left="5" bottom="2" right="5"/>
                       <minimumSize width="64" height="30"/>
                       <preferredSize width="128" height="30"/>
                       <text value=""/>
@@ -244,6 +244,33 @@
                         <properties>
                           <preferredSize width="88" height="23"/>
                           <text value="protect"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="438dd" binding="threadModePanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+                    <constraints/>
+                    <properties>
+                      <enabled value="true"/>
+                      <minimumSize width="84" height="72"/>
+                      <preferredSize width="194" height="72"/>
+                    </properties>
+                    <border type="etched" title="ThreadMode" title-justification="2"/>
+                    <children>
+                      <component id="26556" class="javax.swing.JCheckBox" binding="synchronizedCheckBox">
+                        <constraints border-constraint="North"/>
+                        <properties>
+                          <preferredSize width="86" height="23"/>
+                          <selected value="false"/>
+                          <text value="synchronized"/>
+                        </properties>
+                      </component>
+                      <component id="caaf2" class="javax.swing.JCheckBox" binding="noneCheckBox">
+                        <constraints border-constraint="South"/>
+                        <properties>
+                          <preferredSize width="88" height="23"/>
+                          <selected value="true"/>
+                          <text value="none"/>
                         </properties>
                       </component>
                     </children>

@@ -19,6 +19,8 @@ public class Config {
 
     private LANGUAGE language = LANGUAGE.JAVA;
 
+    private LazyThreadSafetyMode safetyMode = LazyThreadSafetyMode.NONE;
+
     public String getRootView() {
         return rootView;
     }
@@ -75,6 +77,14 @@ public class Config {
         this.language = language;
     }
 
+    public LazyThreadSafetyMode getSafetyMode() {
+        return safetyMode;
+    }
+
+    public void setSafetyMode(LazyThreadSafetyMode safetyMode) {
+        this.safetyMode = safetyMode;
+    }
+
     public void reset() {
         rootView = null;
         isAddPrefixM = true;
@@ -102,4 +112,20 @@ public class Config {
         KOTLIN
     }
 
+    /**
+     * Specifies how a [Lazy] instance synchronizes access among multiple threads.
+     */
+    public enum LazyThreadSafetyMode{
+        /**
+         * Locks are used to ensure that only a single thread can initialize the [Lazy] instance.
+         */
+        SYNCHRONIZED,
+
+        /**
+         * No locks are used to synchronize the access to the [Lazy] instance value; if the instance is accessed from multiple threads, its behavior is undefined.
+         *
+         * This mode should be used only when high performance is crucial and the [Lazy] instance is guaranteed never to be initialized from more than one thread.
+         */
+        NONE
+    }
 }

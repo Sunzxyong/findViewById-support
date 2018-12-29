@@ -3,6 +3,8 @@ package com.zxy.idea.plugin.fvbi.support;
 import com.android.utils.Pair;
 import com.intellij.openapi.util.text.StringUtil;
 
+import javax.swing.*;
+
 /**
  * Created by zhengxiaoyong on 2018/10/04.
  */
@@ -198,6 +200,7 @@ public class CodeGenerateFactory {
         boolean isApi26 = ConfigCenter.getInstance().isApi26();
         String rootView = ConfigCenter.getInstance().getRootView();
         Config.MODIFIER modifier = ConfigCenter.getInstance().getModifier();
+        Config.LazyThreadSafetyMode safetyMode = ConfigCenter.getInstance().getSafetyMode();
         for (int i = 0; i < data.length; i++) {
             boolean selected = (boolean) data[i][0];
             if (!selected)
@@ -223,10 +226,22 @@ public class CodeGenerateFactory {
                         break;
                 }
             }
+
+            switch (safetyMode) {
+                case NONE:
+                    builder.append(String.format(CodeStatements.KOTLIN_FOR_FINDVIEWBYID_EXPRESSION_VARIABLE_LAZY, name));
+                    break;
+                case SYNCHRONIZED:
+                    builder.append(String.format(CodeStatements.KOTLIN_FOR_FINDVIEWBYID_EXPRESSION_VARIABLE_LAZY_SYNCHRONIZED, name));
+                    break;
+                default:
+                    break;
+            }
+
             if (isApi26) {
-                builder.append(String.format(CodeStatements.KOTLIN_LAZY_FOR_FINDVIEWBYID_EXPRESSION_AFTER_API26, name, StringUtil.isEmpty(rootView) ? "" : rootView + ".", type, id)).append("\n");
+                builder.append(String.format(CodeStatements.KOTLIN_FOR_FINDVIEWBYID_EXPRESSION_AFTER_API26, StringUtil.isEmpty(rootView) ? "" : rootView + ".", type, id)).append("\n");
             } else {
-                builder.append(String.format(CodeStatements.KOTLIN_LAZY_FOR_FINDVIEWBYID_EXPRESSION_BEFORE_API26, name, StringUtil.isEmpty(rootView) ? "" : rootView + ".", id, type)).append("\n");
+                builder.append(String.format(CodeStatements.KOTLIN_FOR_FINDVIEWBYID_EXPRESSION_BEFORE_API26, StringUtil.isEmpty(rootView) ? "" : rootView + ".", id, type)).append("\n");
             }
         }
         return builder.toString();
