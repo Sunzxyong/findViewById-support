@@ -3,8 +3,6 @@ package com.zxy.idea.plugin.fvbi.support;
 import com.android.utils.Pair;
 import com.intellij.openapi.util.text.StringUtil;
 
-import javax.swing.*;
-
 /**
  * Created by zhengxiaoyong on 2018/10/04.
  */
