@@ -9,6 +9,7 @@ import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.table.*;
 import javax.swing.text.Document;
+
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
@@ -245,31 +246,37 @@ public class FindViewByIdGenerateDialog extends JDialog {
             }
         });
 
-        synchronizedCheckBox.addChangeListener(e -> {
-            if (!synchronizedCheckBox.isSelected()
-                    && !noneCheckBox.isSelected()) {
-                synchronizedCheckBox.setSelected(true);
-                return;
-            }
+        synchronizedCheckBox.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent changeEvent) {
+                if (!synchronizedCheckBox.isSelected()
+                        && !noneCheckBox.isSelected()) {
+                    synchronizedCheckBox.setSelected(true);
+                    return;
+                }
 
-            if (synchronizedCheckBox.isSelected()) {
-                ConfigCenter.getInstance().setSafetyMode(Config.LazyThreadSafetyMode.SYNCHRONIZED);
-                updateGenerateCode();
-                noneCheckBox.setSelected(false);
+                if (synchronizedCheckBox.isSelected()) {
+                    ConfigCenter.getInstance().setSafetyMode(Config.LazyThreadSafetyMode.SYNCHRONIZED);
+                    updateGenerateCode();
+                    noneCheckBox.setSelected(false);
+                }
             }
         });
 
-        noneCheckBox.addChangeListener(e -> {
-            if (!synchronizedCheckBox.isSelected()
-                    && !noneCheckBox.isSelected()) {
-                noneCheckBox.setSelected(true);
-                return;
-            }
+        noneCheckBox.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent changeEvent) {
+                if (!synchronizedCheckBox.isSelected()
+                        && !noneCheckBox.isSelected()) {
+                    noneCheckBox.setSelected(true);
+                    return;
+                }
 
-            if (noneCheckBox.isSelected()) {
-                ConfigCenter.getInstance().setSafetyMode(Config.LazyThreadSafetyMode.NONE);
-                updateGenerateCode();
-                synchronizedCheckBox.setSelected(false);
+                if (noneCheckBox.isSelected()) {
+                    ConfigCenter.getInstance().setSafetyMode(Config.LazyThreadSafetyMode.NONE);
+                    updateGenerateCode();
+                    synchronizedCheckBox.setSelected(false);
+                }
             }
         });
 
