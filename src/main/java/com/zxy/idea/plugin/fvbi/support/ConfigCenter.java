@@ -61,6 +61,10 @@ public class ConfigCenter {
         mConfig.setLanguage(language);
     }
 
+    public void setSafetyMode(Config.LazyThreadSafetyMode safetyMode) {
+        mConfig.setSafetyMode(safetyMode);
+    }
+
     public String getRootView() {
         return mConfig.getRootView();
     }
@@ -87,6 +91,10 @@ public class ConfigCenter {
 
     public Config.LANGUAGE getLanguage() {
         return mConfig.getLanguage();
+    }
+
+    public Config.LazyThreadSafetyMode getSafetyMode(){
+        return mConfig.getSafetyMode();
     }
 
     public void reset() {
