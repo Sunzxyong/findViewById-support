@@ -19,8 +19,9 @@ Select the layout resource file and open "Generate" dialog from the [**Code**] m
 * **Android Studio 3.0.0+.**
 
 ## **About**
-**Blog**：[https://zhengxiaoyong.com](https://zhengxiaoyong.com)
-**Wechat**：
+* **Blog**：[https://zhengxiaoyong.com](https://zhengxiaoyong.com)
+* **Wechat**：
+
 ![](https://raw.githubusercontent.com/Sunzxyong/ImageRepository/master/qrcode.jpg)
 
 # **LICENSE**
