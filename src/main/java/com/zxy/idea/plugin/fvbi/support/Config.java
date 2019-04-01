@@ -87,9 +87,9 @@ public class Config {
 
     public void reset() {
         rootView = null;
-        isAddPrefixM = true;
-        isApi26 = true;
-        isKotlinLazy = false;
+        isAddPrefixM = ConfigCenter.getInstance().getValue(ConfigCenter.Key.KEY_VARIABLE_PREFIX_M, true);
+        isApi26 = ConfigCenter.getInstance().getValue(ConfigCenter.Key.KEY_API_AFTER_V26, true);
+        isKotlinLazy = ConfigCenter.getInstance().getValue(ConfigCenter.Key.KEY_KOTLIN_LAZY, false);
         variable = VARIABLE.MEMBER;
         modifier = MODIFIER.PRIVATE;
         language = LANGUAGE.JAVA;
@@ -115,7 +115,7 @@ public class Config {
     /**
      * Specifies how a [Lazy] instance synchronizes access among multiple threads.
      */
-    public enum LazyThreadSafetyMode{
+    public enum LazyThreadSafetyMode {
         /**
          * Locks are used to ensure that only a single thread can initialize the [Lazy] instance.
          */
@@ -123,7 +123,7 @@ public class Config {
 
         /**
          * No locks are used to synchronize the access to the [Lazy] instance value; if the instance is accessed from multiple threads, its behavior is undefined.
-         *
+         * <p>
          * This mode should be used only when high performance is crucial and the [Lazy] instance is guaranteed never to be initialized from more than one thread.
          */
         NONE

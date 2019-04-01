@@ -142,8 +142,8 @@ public class FindViewByIdGenerateDialog extends JDialog {
 
     private void init() {
         rootViewTextField.setText("");
-        variablePrefixCheckBox.setSelected(true);
-        api26CheckBox.setSelected(true);
+        variablePrefixCheckBox.setSelected(ConfigCenter.getInstance().getValue(ConfigCenter.Key.KEY_VARIABLE_PREFIX_M, true));
+        api26CheckBox.setSelected(ConfigCenter.getInstance().getValue(ConfigCenter.Key.KEY_API_AFTER_V26, true));
         javaCheckBox.setSelected(true);
         kotlinCheckBox.setSelected(false);
         memberCheckBox.setSelected(true);
@@ -152,7 +152,7 @@ public class FindViewByIdGenerateDialog extends JDialog {
         defaultCheckBox.setSelected(false);
         publicCheckBox.setSelected(false);
         protectCheckBox.setSelected(false);
-        kotlinLazyCheckBox.setSelected(false);
+        kotlinLazyCheckBox.setSelected(ConfigCenter.getInstance().getValue(ConfigCenter.Key.KEY_KOTLIN_LAZY, false));
         kotlinLazyCheckBox.setEnabled(false);
         threadModePanel.setEnabled(false);
         noneCheckBox.setEnabled(false);
@@ -215,6 +215,7 @@ public class FindViewByIdGenerateDialog extends JDialog {
             @Override
             public void stateChanged(ChangeEvent e) {
                 ConfigCenter.getInstance().setAddPrefixM(variablePrefixCheckBox.isSelected());
+                ConfigCenter.getInstance().putValue(ConfigCenter.Key.KEY_VARIABLE_PREFIX_M, variablePrefixCheckBox.isSelected());
                 updateTableNameColumnData();
                 updateGenerateCode();
             }
@@ -224,6 +225,7 @@ public class FindViewByIdGenerateDialog extends JDialog {
             @Override
             public void stateChanged(ChangeEvent e) {
                 ConfigCenter.getInstance().setApi26(api26CheckBox.isSelected());
+                ConfigCenter.getInstance().putValue(ConfigCenter.Key.KEY_API_AFTER_V26, api26CheckBox.isSelected());
                 updateGenerateCode();
             }
         });
@@ -242,6 +244,7 @@ public class FindViewByIdGenerateDialog extends JDialog {
                     synchronizedCheckBox.setEnabled(false);
                 }
                 ConfigCenter.getInstance().setKotlinLazy(selected);
+                ConfigCenter.getInstance().putValue(ConfigCenter.Key.KEY_KOTLIN_LAZY, selected);
                 updateGenerateCode();
             }
         });

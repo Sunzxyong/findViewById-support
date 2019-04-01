@@ -1,5 +1,7 @@
 package com.zxy.idea.plugin.fvbi.support;
 
+import com.intellij.ide.util.PropertiesComponent;
+
 /**
  * Created by zhengxiaoyong on 2018/09/30.
  */
@@ -23,6 +25,20 @@ public class ConfigCenter {
             }
         }
         return sInstance;
+    }
+
+    static final class Key {
+        public static final String KEY_VARIABLE_PREFIX_M = "com.zxy.idea.plugin.findViewById-support.KEY_VARIABLE_PREFIX_M";
+        public static final String KEY_API_AFTER_V26 = "com.zxy.idea.plugin.findViewById-support.KEY_API_AFTER_V26";
+        public static final String KEY_KOTLIN_LAZY = "com.zxy.idea.plugin.findViewById-support.KEY_KOTLIN_LAZY";
+    }
+
+    public void putValue(String key, boolean value) {
+        PropertiesComponent.getInstance().setValue(key, value + "");
+    }
+
+    public boolean getValue(String key, boolean defaultValue) {
+        return Boolean.parseBoolean(PropertiesComponent.getInstance().getValue(key, defaultValue + ""));
     }
 
     public FileType getFileType() {
@@ -93,7 +109,7 @@ public class ConfigCenter {
         return mConfig.getLanguage();
     }
 
-    public Config.LazyThreadSafetyMode getSafetyMode(){
+    public Config.LazyThreadSafetyMode getSafetyMode() {
         return mConfig.getSafetyMode();
     }
 
