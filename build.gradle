@@ -44,7 +44,7 @@ dependencies {
 }
 
 group = 'com.zxy.idea.plugin'
-version = '1.4'
+version = '1.5'
 
 intellij {
     pluginName = 'Android FindViewById Support'
@@ -79,7 +79,8 @@ patchPluginXml {
             "<li>1.1: To optimize the interaction.</li>" +
             "<li>1.2: Update the description.</li>" +
             "<li>1.3: Support lazy safety mode.</li>" +
-            "<li>1.4: Support memory storage.</li>\n"
+            "<li>1.4: Support memory storage.</li>" +
+            "<li>1.5: Support ids xml.</li>\n"
 }
 
 Properties properties = new Properties()

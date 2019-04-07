@@ -19,7 +19,7 @@ public class Tools {
         //@+id/line
         if (value == null || value.length() == 0)
             return null;
-        if (!value.startsWith("@+id/"))
+        if (!value.startsWith("@+id/") && !value.startsWith("@id/"))
             return null;
         String[] result = value.split("/");
         if (result.length != 2)
