@@ -24,7 +24,7 @@ public class ViewIdManager {
     /**
      * K:id,V:ViewInfo.
      */
-    private Map<String, ViewInfo> mViewIdMappingTable = new HashMap<>();
+    private Map<String, ViewInfo> mViewIdMappingTable = new LinkedHashMap<>();
 
     private ViewIdManager() {
     }
